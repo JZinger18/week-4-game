@@ -13,7 +13,7 @@ $(function() {
 		name:'anakin',
 		health: 150,
 		attackPower: 2,
-		counterAttack: 8,
+		counterAttack: 15,
 		basePower:2,
 		basem:0,
 		image:"./images/anakin.jpeg",
@@ -43,7 +43,7 @@ $(function() {
  		name:'luke',
 		health: 120,
 		attackPower: 3,
-		counterAttack: 12,
+		counterAttack: 18,
 		basePower:3,
 		basem:0,
 		image:"./images/luke.jpeg",
@@ -71,7 +71,7 @@ $(function() {
  		name:'trooper',
 		health: 90,
 		attackPower: 1,
-		counterAttack: 18,
+		counterAttack: 9,
 		basem:0,
 		image:"./images/trooper.jpeg", 
 	//save initial values
@@ -97,7 +97,7 @@ $(function() {
  		name:'yoda',
 		health: 160,
 		attackPower: 4,
-		counterAttack: 6,
+		counterAttack: 24,
 		basem:0,
 		image:"./images/yoda.jpeg",
 		  // save initial values
@@ -223,12 +223,12 @@ $(document).on('click','.cattack',function() {
 	 $('#'+counter+'cTwo').html(allCharacters[counter].health)
    
 
-	 allCharacters[att].health = allCharacters[att].health - allCharacters[counter].attackPower
+	 allCharacters[att].health = allCharacters[att].health - allCharacters[counter].counterAttack
 	 console.log(allCharacters[att].health)
 	  $('#'+att+'cTwo').html(allCharacters[att].health)
 
 	 $('#t1').html('you attacked ' + allCharacters[counter].name + ' for '+ damage + ' damage')
-	 $('#t2').html(allCharacters[counter].name + ' attacked you back for '+ allCharacters[counter].attackPower + ' damage')
+	 $('#t2').html(allCharacters[counter].name + ' attacked you back for '+ allCharacters[counter].counterAttack + ' damage')
 	 allCharacters[att].basem++
 
 	 if(allCharacters[counter].health <= 0) {
@@ -262,6 +262,8 @@ $(document).on('click','.cattack',function() {
 		start(allCharacters);
 		characterSelect =false;
 		defender=false;
+		$('#t1').html("")
+		$('#t2').html("")
 
 
 
