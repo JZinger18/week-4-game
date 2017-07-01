@@ -13,7 +13,7 @@ $(function() {
 		name:'anakin',
 		health: 150,
 		attackPower: 2,
-		counterAttack: 15,
+		counterAttack: 8,
 		basePower:2,
 		basem:0,
 		image:"./images/anakin.jpeg",
@@ -42,8 +42,8 @@ $(function() {
  	var luke = {
  		name:'luke',
 		health: 120,
-		attackPower: 15,
-		counterAttack: 10,
+		attackPower: 3,
+		counterAttack: 12,
 		basePower:3,
 		basem:0,
 		image:"./images/luke.jpeg",
@@ -70,7 +70,7 @@ $(function() {
  	var trooper= {
  		name:'trooper',
 		health: 90,
-		attackPower: 25,
+		attackPower: 1,
 		counterAttack: 18,
 		basem:0,
 		image:"./images/trooper.jpeg", 
@@ -96,8 +96,8 @@ $(function() {
  	var yoda= {
  		name:'yoda',
 		health: 160,
-		attackPower: 15,
-		counterAttack: 30,
+		attackPower: 4,
+		counterAttack: 6,
 		basem:0,
 		image:"./images/yoda.jpeg",
 		  // save initial values
@@ -213,8 +213,10 @@ $(document).on('click','.cattack',function() {
 	 // var att = $('.att').attr('id').
 	 console.log(att)
 	 console.log(counter)
+	 console.log(allCharacters[att].attackPower)
 
-	 damage = allCharacters[att].attackPower + Math.pow(allCharacters[att].basePower,allCharacters[att].basem)
+	 damage = allCharacters[att].attackPower + (allCharacters[att].attackPower*(allCharacters[att].basem))
+	 console.log(damage);
 
 	 allCharacters[counter].health = allCharacters[counter].health - damage;
 	 console.log(allCharacters[counter].health)
