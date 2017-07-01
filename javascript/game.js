@@ -1,14 +1,6 @@
 
-//assign value to each characters skills
-	//health, attack power, counter atatck
-	//give each attacker a base power.
-
-
-//character object
-//may need to fix this object
-
 $(function() {
-
+	//anaking object
 	var anakin = {
 		name:'anakin',
 		health: 150,
@@ -36,9 +28,10 @@ $(function() {
 
 
 	}
+	//save anakin object
 	 anakin.init();
 
-
+	 //luke object
  	var luke = {
  		name:'luke',
 		health: 120,
@@ -47,8 +40,8 @@ $(function() {
 		basePower:3,
 		basem:0,
 		image:"./images/luke.jpeg",
-		  // save initial values
-  init: function() {
+ 	// save initial values
+  	init: function() {
       var origValues = {};
       for (var prop in this) {
           if (this.hasOwnProperty(prop) && prop != "origValues") {
@@ -64,9 +57,9 @@ $(function() {
       }
   }
 	}
-
+	//save luke object
 	luke.init()
-
+	//trooper object
  	var trooper= {
  		name:'trooper',
 		health: 90,
@@ -91,8 +84,9 @@ $(function() {
       }
   }
 	}
+	//save tropper object
 	trooper.init()
-
+	//yoda object
  	var yoda= {
  		name:'yoda',
 		health: 160,
@@ -117,12 +111,11 @@ $(function() {
       }
   }
 	}
-
+//save yoda object
 yoda.init()
 
-// condtion = false;
-// $('#hardreset').toggle('hide');
 
+//array of all objects
 var allCharacters = [anakin,luke,trooper,yoda];
 
 
@@ -165,25 +158,13 @@ var characterSelect = false;
 //on click attacker row
 $(document).on('click','.char', function() {
 	if(characterSelect === false) {
-	// alert($(this).attr("id"));
 	$('#'+$(this).attr('id')).addClass('pussy')
 	$('#'+$(this).attr('id')).appendTo('#7p');
 	$("#"+$(this).attr('id').charAt(0)).removeClass("char").addClass('att');
 	$('.char').addClass('def').removeClass('char')
 	$('.def').appendTo('#5p')
-	// console.log($(this).attr('id').charAt(0))
 }
 
-// $('.int').on('click', function() {
-// 	if(characterSelect === false) {
-// 	// alert($(this).attr("id"));
-// 	$('#'+$(this).attr('id')).addClass('pussy')
-// 	// $('#'+$(this).attr('id')).appendTo('#7p');
-// 	// $("#"+$(this).attr('id').charAt(0)).removeClass("char").addClass('att');
-// 	// $('.char').addClass('def').removeClass('char')
-// 	// $('.def').appendTo('#5p')
-// 	// console.log($(this).attr('id').charAt(0))
-// }
 	characterSelect = true;
 
 })
@@ -191,59 +172,51 @@ $(document).on('click','.char', function() {
 var defender = false
 //on click for first defender
 $(document).on('click','.def',function() {
-	console.log('lick')
-	console.log(defender)
 	if(defender === false) {
-	// alert($(this).attr("id"));
 	$('#'+$(this).attr('id')).appendTo('#8p');
 	$("#"+$(this).attr('id').charAt(0)).removeClass("def").addClass('counter');
-	 console.log($(this).attr('id'))
 }
 	defender = true;
 
 
 })
 
-
+//on click function for attack button
 $(document).on('click','.cattack',function() {
-	console.log('test');
 	att = $('.att')[0].id
 	counter = $('.counter')[0].id
 
-	 // var att = $('.att').attr('id').
-	 console.log(att)
-	 console.log(counter)
-	 console.log(allCharacters[att].attackPower)
-
+	//used to track current attack power of attacker per attack
 	 damage = allCharacters[att].attackPower + (allCharacters[att].attackPower*(allCharacters[att].basem))
-	 console.log(damage);
 
+	 //update health of defender
 	 allCharacters[counter].health = allCharacters[counter].health - damage;
-	 console.log(allCharacters[counter].health)
 	 $('#'+counter+'cTwo').html(allCharacters[counter].health)
    
-
+	 //update health of attacker after attack
 	 allCharacters[att].health = allCharacters[att].health - allCharacters[counter].counterAttack
-	 console.log(allCharacters[att].health)
 	  $('#'+att+'cTwo').html(allCharacters[att].health)
 
+	  //display what happened to attacker and defender
 	 $('#t1').html('you attacked ' + allCharacters[counter].name + ' for '+ damage + ' damage')
 	 $('#t2').html(allCharacters[counter].name + ' attacked you back for '+ allCharacters[counter].counterAttack + ' damage')
 	 allCharacters[att].basem++
 
+	 //condtional logic for when defernder health is 0 and initate new pick of a defender
 	 if(allCharacters[counter].health <= 0) {
 	 	alert('you beat ' + allCharacters[counter].name + ' Select a new defender')
 	 	$("#8p").empty();
 	 	 defender = false;
 
 	 }
-
+	 //conditional logic if attack health is 0 to restart game
 	 if(allCharacters[att].health <= 0) {
 	 	alert('you have been defeated, click reset to try again')
 		$('#hardreset').toggle('show');
 		}
 		})
-
+	
+	//on click function for reset, needs to be refractered
 	$('#hardreset').on('click', function() {
 		anakin.reset();
 		trooper.reset();
@@ -266,19 +239,8 @@ $(document).on('click','.cattack',function() {
 		$('#t2').html("")
 
 
-
-
-
 		 })
-
-       
-
-
-
-
-	
-
-
+//iniatalize placement of thumbnails
 start(allCharacters);
 
 });
