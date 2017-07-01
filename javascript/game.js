@@ -239,7 +239,7 @@ $(document).on('click','.cattack',function() {
 	 }
 
 	 if(allCharacters[att].health <= 0) {
-	 	alert('you have been defeated, click. reset to try again')
+	 	alert('you have been defeated, click reset to try again')
 		$('#hardreset').toggle('show');
 		}
 		})
