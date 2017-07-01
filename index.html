@@ -1,0 +1,117 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class='row'>
+		<div class="col-md-12">
+			<H1 class='text-center'>STARWARS CLASSIC GAME</H1>
+		</div>
+	</div>
+
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3 class='text-center'>Choose an attaker by clicking on any charcter first</h3>
+		</div>
+	</div>
+
+	<!-- Initial Position of characters -->
+	<div class="row">
+		<div class='col-sm-6 col-md-3 int' id="0p">
+		</div>
+		<div class='col-sm-6 col-md-3 int' id="1p">
+		</div>
+		<div class='col-sm-6 col-md-3 int' id="2p">
+		</div> 
+		<div class='col-sm-6 col-md-3 int' id="3p">
+		</div>
+	
+	</div>
+
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3 class='text-center'>Select your defender</h3>
+		</div>
+	</div>
+<!-- 	Row  created when an attached is selected, and have to choose defenders -->
+	<div class='row'>
+		<div class='col-md-3' id="4p">
+		</div>
+		<div class='col-md-6' id="5p">
+		</div>
+		<div class='col-md-3' id="6p">
+		</div>
+		
+	</div>
+	
+	<div class='row'>
+		<div class='col-md-4' id='but'>
+		<h3 class='text-center'>Attacker</h3>
+	<!-- Attacker Position -->
+		<div class='row'>
+			<div class='col-md-12' id='7p'>
+			</div>
+		</div>
+		</div>
+
+
+	<div class='col-md-4 text-center'>
+		<button type="button" class="btn btn-primary btn-lg cattack">Attack</button>
+		<button type="button" value='hide/show' class="btn btn-primary btn-lg" id="hardreset">Reset</button>
+		<p id ="t1"></p>
+		<p id='t2'></p>
+			
+
+	</div>
+
+
+	<div class='col-md-4'>
+	<h3 class='text-center'>Defender</h3>
+	<!-- Defender Position -->
+		<div class='row'>
+		<div class='col-md-12' id='8p'>
+		</div>
+	</div>
+</div>
+
+
+	</div>
+
+
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+<script src="./javascript/game.js"></script>	
+</body>
+</html>
+
+
+
+<!-- Create a row of 4 charahceters within have name and current score
+
+have a row for when you choose character
+
+have a row for when you choose enemny
+
+have a row for the defender
+
+have a button for attack -->
